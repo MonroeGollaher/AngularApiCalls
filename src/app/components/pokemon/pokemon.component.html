@@ -1,3 +1,29 @@
 <p>pokemon works!</p>
-<h1 *ngFor="let poke of pokemon">{{ pokemon }}</h1>
+
+<!-- <button (click)="getPokemon()">
+  click me
+</button> -->
+
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Url</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pokemon of pokemon">
+        <td>{{ pokemon.name }}</td>
+        <td (click)="setActive(pokemon.url)">{{ pokemon.url }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- <div *ngFor="let pokemon of pokemon | async">
+  <h1> {{ pokemon | json }}</h1>
+</div> -->
+
+
 

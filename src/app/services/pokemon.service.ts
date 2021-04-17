@@ -9,15 +9,14 @@ import { Observable } from 'rxjs';
 })
 export class PokemonService {
 
+  pokemon: Pokemon[]
+
   pokeApi: string ='https://pokeapi.co/api/v2'
 
   constructor(private http:HttpClient) { }
 
    getPokemon():Observable<any> {
-    return this.http.get(this.pokeApi + '/pokemon')
+    return this.http.get<Pokemon[]>(this.pokeApi + '/pokemon')
   }
 
-  setPokemon(name){
-    return this.http.get(this.pokeApi + '/pokemon/' + name)
-  }
 }
