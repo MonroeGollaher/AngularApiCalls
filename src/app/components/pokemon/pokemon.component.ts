@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { Pokemon } from '../../models/Pokemon'
+import { ActivePokemon } from '../../models/ActivePokemon'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon',
@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 export class PokemonComponent implements OnInit {
 
   pokemon: Pokemon[]
+  activePokemon: ActivePokemon
 
   pokeApi: string ='https://pokeapi.co/api/v2/pokemon'
 
@@ -31,8 +32,12 @@ export class PokemonComponent implements OnInit {
   }
 
   setActive(url){
-    const res = this.http.get<any>(url)
-    console.log(res);
+    this.http.get<any>(url)
+    .subscribe(
+      data => {
+        this.activePokemon = data
+      }
+    )
   }
 
 }

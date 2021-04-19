@@ -17,8 +17,20 @@
         <td>{{ pokemon.name }}</td>
         <td (click)="setActive(pokemon.url)">{{ pokemon.url }}</td>
       </tr>
+      <!-- <tr *ngFor="let active of activePokemon">
+        <td>
+          {{ active.data.name }}
+        </td>
+      </tr> -->
     </tbody>
   </table>
+  <div *ngIf="activePokemon " class="active">
+    <h3>Active Pokemon: </h3>
+    <img [src]="activePokemon.sprites.other['official-artwork'].front_default" alt="" height="100" width="100">
+    <p> Name: {{ activePokemon.name }} </p>
+    <p> ID: {{ activePokemon.id }} </p>
+    <p> Weight: {{ activePokemon.weight }} </p>
+  </div>
 </div>
 
 <!-- <div *ngFor="let pokemon of pokemon | async">

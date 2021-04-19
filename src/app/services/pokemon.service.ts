@@ -19,4 +19,6 @@ export class PokemonService {
     return this.http.get<Pokemon[]>(this.pokeApi + '/pokemon')
   }
 
+
+
 }
